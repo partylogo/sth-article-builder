@@ -211,7 +211,8 @@ keyword_plan:
 
 # ── setup 進度（狀態畫面用）───────────────────────────
 setup:
-  route: ""                # quick／full
+  route: ""                # all（全部）／required（只做必要的第 1、2 段）／custom（自己挑）
+  selected: []             # route 是 custom 時選了哪幾段，例：[1, 2, 7]
   parts:                   # 每段：done／default／skipped／todo
     keyword_tool: todo
     site_data: todo
@@ -234,3 +235,4 @@ setup:
 | 1 | 0.1.0 | 第一版 |
 | 1 | 0.1.1 | 新增可選欄位 `adapters.publish.browser_session_api` 與平台值 `browser-session-api`；舊 profile 不用改 |
 | 1 | 0.1.2 | 新增可選欄位 `content_inventory.include_existing`（沒填＝true，行為同前）；清單涵蓋狀態多「網站未上線」「只收本系統」；清單可以是空的 |
+| 1 | 0.1.3 | `setup.route` 的值改成 all／required／custom（舊值 quick 視同 required、full 視同 all），新增 `setup.selected`；設定精靈改成每段先給說明卡、使用者選方法才動手 |
