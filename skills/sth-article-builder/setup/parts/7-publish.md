@@ -51,7 +51,7 @@ profile 還沒有 `site.repo_path` 時先問路徑。照 `~/article-engine/adapt
    1. 讀網站程式碼：後台的原始碼在 `site.repo_path` 裡時，找 API 網址、建草稿的路徑與欄位、上傳圖片的流程、欄位長度限制、登入資訊存在哪
    2. 看後台實際的請求：請使用者在 Chrome 登入後台，我打開後台頁面，用 `read_network_requests` 看後台自己發出的請求（只看，不按任何按鈕、不送出表單）
    3. 你直接告訴我（工程師給的 API 文件）
-3. 照 `~/article-engine/adapters/publish/browser-session-api.md` 的「profile 設定」填齊欄位。登入資訊的存放方式不在轉接器支援的清單裡（目前只有 `logto-localstorage`）→ 照實說，記進 setup-issues.md，回到卡片。
+3. 照 `~/article-engine/adapters/publish/browser-session-api.md` 的「profile 設定」填齊欄位。登入資訊的存放方式不在轉接器支援的清單裡（目前只有 `logto-localstorage`）→ 照實說，記進 skill-issues.md，回到卡片。
 4. 前置檢查：照轉接器的「前置檢查」。分頁停在登入頁 → 停，請使用者自己登入，**不替使用者選帳號或輸入密碼**。登入後跑唯讀呼叫（`js-check`），回 `ok: true` 才算通過。
 5. **不建測試文章**。第一篇文章的 S10 才是第一次真的寫入，那時也會先給使用者看內容。
 6. 欄位整理成表給使用者確認：送出前檢查哪些欄位、上限多少、依據（程式碼哪一行，或哪個請求）。
@@ -76,7 +76,7 @@ profile 還沒有 `site.repo_path` 時先問路徑。照 `~/article-engine/adapt
    D. 只產出檔案        可行
    ```
 3. 回到卡片的「選哪個？」，這次有依據就標推薦。
-4. 查到的平台沒有對應的轉接器 → 寫進 setup-issues.md「{平台} 還沒有發佈轉接器」。
+4. 查到的平台沒有對應的轉接器 → 寫進 skill-issues.md「{平台} 還沒有發佈轉接器」。
 
 ## 把 runs/ 對到網站文章
 

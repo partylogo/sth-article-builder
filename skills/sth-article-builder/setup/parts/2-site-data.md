@@ -76,7 +76,7 @@ B、C 可以一起選，兩邊結果對照。
 
 profile 的 `site.domain`、`canonical_base`、`article_url_pattern`、`language`、`region`、`brand.name`、`brand.variants_to_fix`。還沒上線：`site.domain` 留空，2c 的方法只剩「先空著」。
 
-`site.language` 對應不到 `~/article-engine/language/` 底下的語言包時，照實說「目前只有 zh-TW 語言包」，寫進 setup-issues.md。
+`site.language` 對應不到 `~/article-engine/language/` 底下的語言包時，照實說「目前只有 zh-TW 語言包」，寫進 skill-issues.md。
 
 `research.community_sources` 依語言填預設，不問，在完成訊息裡列出：
 

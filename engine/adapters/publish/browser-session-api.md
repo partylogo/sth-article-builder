@@ -64,7 +64,7 @@ adapters:
 |---|---|
 | `logto-localstorage` | `localStorage` 裡符合 `storage_key_regex` 的鍵，值是 JSON，鍵的格式是「{權限範圍}@{API 網址}」（權限範圍可能是空的，例：`@https://api.example.com`），取 API 網址等於 `resource` 那筆的 `token`；有 `expiresAt`（秒）且已過期就停，請使用者重新整理後台頁面 |
 
-其他登入方式（cookie、別家登入服務）還沒做：遇到時寫進 setup-issues，不要自己猜。
+其他登入方式（cookie、別家登入服務）還沒做：遇到時寫進 skill-issues.md，不要自己猜。
 
 ## 前置檢查（設定時做一次，每次開跑也做）
 
