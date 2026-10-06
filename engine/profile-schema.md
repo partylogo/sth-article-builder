@@ -73,6 +73,7 @@ workspace:
 # ── 撞文範圍 ─────────────────────────────────────────
 content_inventory:
   include_existing: true   # true＝把網站上的既有文章收進 content-inventory.csv；false＝不收，清單只有這套系統寫的文章（可以從空的開始）
+  later: false             # true＝使用者選「先空著，之後再加」，狀態畫面一直提醒補收
                            # 之後想收既有文章：改成 true，下次開跑時會讀網站補進來
 
 cannibalization:
@@ -143,7 +144,7 @@ adapters:
       api_base: ""         # 例：https://cms.example.com/wp-json/wp/v2
     repo:
       content_glob: """"     # 例：src/content/blog/**/*.mdx
-      field_map:           # frontmatter 欄位名稱對應；setup 第 2 段偵測
+      field_map:           # frontmatter 欄位名稱對應；setup 第 7 段帶出
         title: title
         slug: ""           # 空＝用檔名
         published_at: ""
@@ -235,4 +236,5 @@ setup:
 | 1 | 0.1.0 | 第一版 |
 | 1 | 0.1.1 | 新增可選欄位 `adapters.publish.browser_session_api` 與平台值 `browser-session-api`；舊 profile 不用改 |
 | 1 | 0.1.2 | 新增可選欄位 `content_inventory.include_existing`（沒填＝true，行為同前）；清單涵蓋狀態多「網站未上線」「只收本系統」；清單可以是空的 |
+| 1 | 0.1.4 | 新增可選欄位 `content_inventory.later`；`frontmatter.fields` 改由 setup 第 7 段依上稿方式帶出（第 5 段不再問）；`site.cta.angle_bias` 設定時不再問，預設空；給使用者看的字不寫步驟代號 |
 | 1 | 0.1.3 | `setup.route` 的值改成 all／required／custom（舊值 quick 視同 required、full 視同 all），新增 `setup.selected`；設定精靈改成每段先給說明卡、使用者選方法才動手 |

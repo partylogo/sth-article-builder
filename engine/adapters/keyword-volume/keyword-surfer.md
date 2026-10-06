@@ -15,6 +15,8 @@
 ## 前置檢查
 
 呼叫 `tabs_context_mcp` 確認 Chrome MCP 連線可用。失敗就提醒使用者開啟 Chrome + claude-in-chrome 擴充。
+
+設定時（setup 第 1 段）另外確認擴充有裝：用範例詞「天氣」跑一次下方「更快的抓法」，回傳裡沒有主詞量也沒有相關詞表，就判定 Keyword Surfer 沒裝，請使用者到 Chrome 線上應用程式商店安裝。
 連不上時這次照 [none.md](none.md) 的路徑跑，報告標 ⚠️，不擋稿。
 
 ## 查一個詞

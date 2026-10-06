@@ -6,7 +6,7 @@
 
 ## 原則
 
-1. **先給說明卡，使用者選了方法才動手。** 每段（第 2 段是每張小卡）開始時只給說明卡（格式見 §2），卡片給出之前不讀網站、不讀程式碼、不搜尋、不開瀏覽器。
+1. **先給說明卡，使用者選了方法才動手。** 每段（有分部分的段落是每個部分，例：2-1、2-2）開始時只給說明卡（格式見 §2），卡片給出之前不讀網站、不讀程式碼、不搜尋、不開瀏覽器。
 2. **調查是一種方法，不是前置動作。** 「讀網站推測」「讀網站程式碼推測」「幫我查」都列在方法表裡，使用者選了才做。調查完把結果和依據給使用者確認，確認後才寫檔。
 3. **一次一段。** 這段寫完檔才給下一段的卡，不一次丟好幾段的問題。
 4. **推薦看情況。** 有具體理由才標推薦（例：使用者說過手上有指南、前一段已經讀過網站），理由寫在推薦後面。沒有理由就不標，不要為了有推薦而去調查。
@@ -48,7 +48,7 @@
 每段開始時給一張卡，格式固定：
 
 ```
-**第 N 段：{名稱}**
+**第 N 段：{名稱}**　　（分部分的段落寫成「**2-1：{名稱}**」）
 
 **這段設定什麼**：{一句白話}
 
@@ -62,9 +62,11 @@
 | A. … | … | … | … | 不會／只讀／會：{做什麼} |
 
 **推薦**：{方法}，因為 {理由}　← 沒有具體理由就整行不寫
-
-**跳過的話**：{用什麼預設}／不能跳過
 ```
+
+- **可以跳過的段落**：「跳過」是方法表的最後一列，寫清楚跳過會用什麼預設（例：「C. 跳過｜用語言包的預設語氣」）。卡片底下不另外寫「跳過的話」。
+- **必要的段落**（第 1、2 段）：方法表不列跳過，表格下面寫一句「不能跳過」。
+- **畫面上的字一律白話**：不寫流程步驟代號（S1、S4……），改寫步驟在做什麼（例：「寫文章時查關鍵字」「審稿時」）；用詞照 `~/article-engine/plain-terms.md`，例：「撞文」寫成「重複內容檢查」，「你直接告訴我」寫成「手動輸入」。
 
 接著用 AskUserQuestion 問「選哪個？」，選項就是方法表的每一列（可多選的段落註明）。
 
@@ -79,7 +81,7 @@
 | 段 | 名稱（也是指令參數） | 設定什麼 | 必要？ | 做法 | 寫哪些檔 |
 |---|---|---|---|---|---|
 | 1 | 搜尋量工具 | 用什麼工具查關鍵字的搜尋量 | 必要 | [parts/1-keyword-tool.md](parts/1-keyword-tool.md) | profile `adapters.keyword_volume` |
-| 2 | 站點資料 | 網站基本資料、讀者與導流、既有文章要不要收（三張小卡） | 必要 | [parts/2-site-data.md](parts/2-site-data.md) | profile `site`、`content_inventory`、`cannibalization`、`research`、`adapters.read_source`；content-inventory.csv |
+| 2 | 站點資料 | 網站基本資料、讀者與導流、既有文章要不要收（分 2-1、2-2、2-3 三個部分） | 必要 | [parts/2-site-data.md](parts/2-site-data.md) | profile `site`、`content_inventory`、`cannibalization`、`research`、`adapters.read_source`；content-inventory.csv |
 | 3 | 關鍵字規劃 | 哪些詞屬於哪個主題 | 可跳過 | [parts/3-keyword-plan.md](parts/3-keyword-plan.md) | keyword-plan/ |
 | 4 | 品牌語氣 | 文章怎麼說話 | 可跳過 | [parts/4-brand-voice.md](parts/4-brand-voice.md) | brand-voice.md |
 | 5 | 寫作指南 | 文章要守哪些規矩 | 可跳過 | [parts/5-writing-guide.md](parts/5-writing-guide.md) | writing-guide.md；profile `article_count`、`frontmatter`、`writing` |
@@ -95,7 +97,7 @@
 
 答案記進 `setup.route`（all／required／custom）與 `setup.selected`（段落清單）。沒選到的段落記 `skipped`。
 
-**第 6 段目前暫停**：總覽照列，「必要？」欄寫「暫停（之後優化）」；「全部」與「自己挑」都不含第 6 段，`setup.parts.audit_rule` 一律記 `skipped`。寫文章時 S7 用 `~/article-engine/audit-presets/generic.md`，S8 審稿只做 last-mile-review 的通用檢查（站自己放了 `docs/review-project.md` 時照樣會讀）。
+**第 6 段目前暫停**：總覽照列，「必要？」欄寫「暫停（之後優化）」；「全部」與「自己挑」都不含第 6 段，`setup.parts.audit_rule` 一律記 `skipped`。寫文章時查出處用 `~/article-engine/audit-presets/generic.md`，審稿只做 last-mile-review 的通用檢查（站自己放了 `docs/review-project.md` 時照樣會讀）。
 
 段落名稱比對寬鬆：`搜尋量`、`站點`、`網站資料`、`讀者`、`既有文章`（第 2 段第 3 張卡）、`關鍵字規劃`、`語氣`、`寫作指南`、`查核`、`上稿`、`發佈`、`封面` 都認得。
 
@@ -114,10 +116,10 @@
 
 | 段 | 跳過時 |
 |---|---|
-| 3 | 沒有 keyword plan：S4、S6 不做 pillar 歸屬與內連，報告標 ⚠️ |
+| 3 | 沒有關鍵字規劃：寫文章時不判斷主題歸屬與內部連結，報告標 ⚠️ |
 | 4 | 用語言包的預設語氣 |
 | 5 | 只用 core-principles＋seo-rules；frontmatter 用預設欄位；一律 1 篇 |
-| 6 | 暫停中：S7 用通用查核預設；S8 審稿只做通用檢查 |
+| 6 | 暫停中：查出處用通用查核預設；審稿只做通用檢查 |
 | 7 | 只產出檔案 |
 | 8 | 不產封面 |
 
