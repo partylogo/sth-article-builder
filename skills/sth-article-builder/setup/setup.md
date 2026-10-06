@@ -40,7 +40,7 @@
 | 空白，有 profile 但選定的段落還有 `todo` | 說「上次做到第 N 段」，從第一個 `todo` 的段落接著給卡 |
 | 空白，都設好了 | 顯示狀態（§5） |
 | `狀態` | 顯示狀態（§5） |
-| 段落名稱 | 只跑那一段（補建或修改），直接給那段的卡；名稱對照見 §3 |
+| 段落名稱 | 只跑那一段（補建或修改），直接給那段的卡；名稱對照見 §3。第 6 段（`查核`）目前暫停：回「查核規則這段暫停中，寫文章時用通用查核預設，之後優化」，不給卡 |
 | `資源` | 見 §0 最後一段 |
 
 ## 2. 說明卡
@@ -83,7 +83,7 @@
 | 3 | 關鍵字規劃 | 哪些詞屬於哪個主題 | 可跳過 | [parts/3-keyword-plan.md](parts/3-keyword-plan.md) | keyword-plan/ |
 | 4 | 品牌語氣 | 文章怎麼說話 | 可跳過 | [parts/4-brand-voice.md](parts/4-brand-voice.md) | brand-voice.md |
 | 5 | 寫作指南 | 文章要守哪些規矩 | 可跳過 | [parts/5-writing-guide.md](parts/5-writing-guide.md) | writing-guide.md；profile `article_count`、`frontmatter`、`writing` |
-| 6 | 查核規則 | 哪些內容一定要查證 | 可跳過 | [parts/6-audit-rule.md](parts/6-audit-rule.md) | audit-rule.md、extensions/；profile `audit`、`extensions` |
+| 6 | 查核規則 | 哪些內容一定要查證 | **暫停（之後優化）** | [parts/6-audit-rule.md](parts/6-audit-rule.md) | audit-rule.md、extensions/；profile `audit`、`extensions` |
 | 7 | 上稿方式 | 寫好的文章怎麼送進網站 | 建議 | [parts/7-publish.md](parts/7-publish.md) | profile `adapters.publish`；寫進 repo 時另寫 publish-rules.md |
 | 8 | 封面 | 要不要自動產封面圖 | 可跳過 | [parts/8-cover.md](parts/8-cover.md) | profile `adapters.cover`；cover-template/ |
 
@@ -91,9 +91,11 @@
 
 1. 全部，從第 1 段開始
 2. 只做必要的（第 1、2 段），其他之後再補
-3. 自己挑（接著用多選列出 8 段）
+3. 自己挑（接著用多選列出可以做的段落）
 
 答案記進 `setup.route`（all／required／custom）與 `setup.selected`（段落清單）。沒選到的段落記 `skipped`。
+
+**第 6 段目前暫停**：總覽照列，「必要？」欄寫「暫停（之後優化）」；「全部」與「自己挑」都不含第 6 段，`setup.parts.audit_rule` 一律記 `skipped`。寫文章時 S7 用 `~/article-engine/audit-presets/generic.md`，S8 審稿只做 last-mile-review 的通用檢查（站自己放了 `docs/review-project.md` 時照樣會讀）。
 
 段落名稱比對寬鬆：`搜尋量`、`站點`、`網站資料`、`讀者`、`既有文章`（第 2 段第 3 張卡）、`關鍵字規劃`、`語氣`、`寫作指南`、`查核`、`上稿`、`發佈`、`封面` 都認得。
 
@@ -115,7 +117,7 @@
 | 3 | 沒有 keyword plan：S4、S6 不做 pillar 歸屬與內連，報告標 ⚠️ |
 | 4 | 用語言包的預設語氣 |
 | 5 | 只用 core-principles＋seo-rules；frontmatter 用預設欄位；一律 1 篇 |
-| 6 | 用通用查核預設 |
+| 6 | 暫停中：S7 用通用查核預設；S8 審稿只做通用檢查 |
 | 7 | 只產出檔案 |
 | 8 | 不產封面 |
 
@@ -132,14 +134,14 @@
 3 關鍵字規劃   ⏭ 跳過 → /sth-article-builder setup 關鍵字規劃
 4 品牌語氣     ⚙ 用預設語氣 → /sth-article-builder setup 語氣
 5 寫作指南     ⚙ 用預設 → /sth-article-builder setup 寫作指南
-6 查核規則     ⚙ 用通用查核 → /sth-article-builder setup 查核
+6 查核規則     ⏸ 暫停，用通用查核預設（之後優化）
 7 上稿方式     ✅ 只產出檔案
 8 封面        ⏭ 不產 → /sth-article-builder setup 封面
 
 已寫文章：0 篇（前 3 篇會每一步都問你）
 ```
 
-圖示：✅ 已完成、⚙ 用預設、⏭ 跳過、⬜ 還沒做。每一項沒完成的都附要打的指令。
+圖示：✅ 已完成、⚙ 用預設、⏭ 跳過、⬜ 還沒做、⏸ 暫停（這段目前不開放）。每一項沒完成的都附要打的指令；⏸ 不附指令。
 
 ## 6. 結束時
 

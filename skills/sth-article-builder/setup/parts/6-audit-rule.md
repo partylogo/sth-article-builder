@@ -1,5 +1,7 @@
 # 第 6 段：查核規則（哪些內容一定要查證）
 
+> **目前暫停（2026-10-06）**：設定精靈不給這段的卡，`setup.parts.audit_rule` 記 skipped。寫文章時 S7 用通用查核預設，S8 審稿只做 last-mile-review 的通用檢查。下面的內容保留，之後優化時用。站自己放了 `audit-rule.md` 或 `docs/review-project.md` 時，寫文章照樣會讀。
+
 這段有兩張卡：6a 查核規則本身、6b 審稿用的專案檔。
 
 ---
