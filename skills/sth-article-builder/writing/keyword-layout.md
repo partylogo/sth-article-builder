@@ -1,6 +1,5 @@
 # 關鍵字佈局策略
 
-> 來源：拜拜日曆 `.claude/skills/draft-article/keyword-layout.md` 全文（原本從該站 `docs/guideline/article-guide.md` 第五節提取）。
 > 供撰寫文章時參考關鍵字的具體放置位置。範例沿用拜拜日曆的「天赦日拜拜」，換站時規則照用、範例只當示意。
 
 ---

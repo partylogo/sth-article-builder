@@ -50,5 +50,5 @@ cd ~/Projects/sth-article-builder && ./install.sh
 ## 狀態
 
 - 版本見 `engine/VERSION`。
-- 寫作規則與範例來自一個實際運作的中文民俗網站，範例都標成「例」，換站時規則照用、範例只當示意。
+- 寫作規則與範例來自一個實際運作的中文民俗網站，見 [PROVENANCE.md](PROVENANCE.md)。
 - 繁體中文為主；其他語言包還沒做。

@@ -1,7 +1,6 @@
 # 發佈平台：WordPress（WP-CLI over SSH）
 
-> 來源：拜拜日曆 `docs/guideline/wordpress-publish.md`（全文）；「設封面」動作另合併 make-banner「產圖後：檢查 WordPress 封面圖」。
-> 連線資訊、分類、revalidate 改從 `profile.adapters.publish.wordpress` 讀。原文的拜拜日曆數值保留成「例」。
+> 連線資訊、分類、revalidate 改從 `profile.adapters.publish.wordpress` 讀。下文的例子是拜拜日曆的設定值。
 > 下文指令裡的 `{ssh_host}`、`{wp_path}`、`{wp_flags}` 分別是 profile 的 `ssh_host`、`wp_path`、`wp_cli_flags`（例：`root@203.0.113.10`、`/var/www/html`、`--path=/var/www/html --allow-root`）。
 
 這份文件是給 AI agent 看的操作手冊，說明如何把一篇新文章發佈到站的 WordPress 後端。
@@ -220,7 +219,7 @@ ssh {ssh_host} 'wp term list category --fields=term_id,name {wp_flags}'
 
 封面圖在 WordPress 是用 `_thumbnail_id` 這個 post meta 指向一個 media attachment。發文流程本身不會設封面圖，要另外處理。
 
-**單獨補封面時（`/sth-article-builder cover`），先找對應的文章**（來源：make-banner「產圖後」第 1 步）：
+**單獨補封面時（`/sth-article-builder cover`），先找對應的文章**：
 
 - 有文章 slug（從 runs/ 的 frontmatter 或 content-inventory 拿）→ 直接用。
 - 不確定 → `ssh {ssh_host} "wp post list --post_status=any --fields=ID,post_title,post_name {wp_flags}"` 比對標題；或 `wp post list --name=<slug> --post_status=any --fields=ID,post_title,post_name`。
@@ -256,7 +255,7 @@ curl -X POST {revalidate.url} -H "x-revalidate-secret: {secret}"   # profile 有
 
 > 注意：已有封面圖時，`wp media import --featured_image` 會直接覆蓋舊的 `_thumbnail_id`（舊 attachment 不會被刪，只是不再當封面）。覆蓋前先用第 1 步確認。
 > **`_thumbnail_id` 有值 → 不要主動覆蓋**（gate `cover-featured`）；要替換需使用者明確要求。
-> `--title` 用主標，`--alt` 用「主標，副標」（來源：make-banner）。
+> `--title` 用主標，`--alt` 用「主標，副標」。
 > 下架或刪除文章前，先查有沒有 attachment 的 `post_parent` 指向它，避免封面圖跟著失效。
 
 回報：文章、attachment ID（記成 cover.ref）、圖檔 URL。
@@ -265,7 +264,7 @@ curl -X POST {revalidate.url} -H "x-revalidate-secret: {secret}"   # profile 有
 
 前端怎麼從文章 HTML 產生結構化資料、站上有沒有既有的批次發佈腳本，這類只屬於某個站的細節寫在 profile 的 `publish.wordpress.notes`。
 
-> 例：拜拜日曆的 `scripts/publish-to-wp.mjs` 批次發佈腳本、前端 `src/app/blog/[slug]/page.js` 由 `### Q：` 自動產生 FAQPage schema，整段原文移到拜拜的站設定。
+> 例：站上既有的批次發佈腳本、前端由 `### Q：` 自動產生 FAQPage schema 的機制，這類說明都寫在站自己的 publish notes。
 
 ## 完整操作範例（複製貼上就能用）
 

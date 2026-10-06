@@ -1,6 +1,5 @@
 # 第 5 段：writing guide（要守什麼）
 
-> 來源：plan-v5 §5.4、§7.2 第 5 段。產出 `{站}/writing-guide.md`，並設定 profile 的 `article_count`、`frontmatter`、`writing`。
 
 writing guide 管**要守什麼**：文章結構（FAQ、標題寫成問句、固定模板）、內容取捨、禁止事項、格式。用在 S5 大綱、S6 撰稿、S8 檢查。沒建時只用 core-principles＋seo-rules。
 

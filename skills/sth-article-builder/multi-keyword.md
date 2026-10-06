@@ -1,6 +1,5 @@
 # 多關鍵字模式（fan-out）
 
-> 來源：拜拜日曆 auto-article §4（全文），「神明」改成「關鍵字」，禁寫檔改成 sth-article-builder 的共用檔。
 
 S1/S2 在主線跑完、gate 清完之後，用 Workflow tool fan-out（Workflow 不能用時，改用 Agent tool 一個關鍵字開一個 agent，同一則訊息裡並行送出）。
 

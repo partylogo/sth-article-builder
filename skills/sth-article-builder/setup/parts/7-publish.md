@@ -1,6 +1,5 @@
 # 第 7 段：發佈平台設定
 
-> 來源：plan-v5 §7.2 第 7 段；發佈轉接器在 `~/article-engine/adapters/publish/`。設定 profile 的 `adapters.publish`。
 
 ## 要決定的點
 

@@ -1,6 +1,5 @@
 # 讀取來源（加分）：repo 原始檔
 
-> 來源：plan-v5 §4.2「加分來源：repo 原始檔」。不綁任何框架：只認 markdown 類內容檔（md、mdx、markdown）與它們的 frontmatter。
 > 這是加分來源，不取代 [website.md](website.md)。有它時，content-inventory 的涵蓋狀態可以升為「已確認完整」，抓回拿得到原生格式。
 
 ## 能力宣告

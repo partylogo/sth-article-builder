@@ -1,7 +1,6 @@
 # 研究：S1–S4
 
-> 來源：拜拜日曆 auto-article S1–S4、§3 決策規則表 #1、#2；draft-article Step 1–2；deity-content-pipeline Step 2–3。
-> 拜拜日曆的值（3,000／1,000 門檻、認識篇＋拜拜篇、分群類型）放在拜拜的站設定，這裡只留規則。
+> 各站的數值（篇數門檻、拆篇類型）放在站設定，這裡只留規則。
 
 ---
 
@@ -10,7 +9,7 @@
 照 `~/article-engine/adapters/keyword-volume/{tool}.md`（`profile.adapters.keyword_volume.tools`，可多個）：搜主關鍵字 → 抓主詞量與相關詞 → 變體詞再查 → 記錄「其他人也問了」（PAA）。
 
 1. **先查詞庫**：站有 keyword plan 時，先讀 `{站}/keyword-plan/keywords.csv`（格式見 `~/.claude/skills/keyword-plan/format.md`）。主詞量、俗稱量直接從詞庫拿，工具只用來查詞庫沒有的長尾變體。詞庫的查詢日期超過一季就重查主詞。新查到的詞**不寫進詞庫**（共用檔只在 S12 由主線寫），先記在 state.json。
-   （例：拜拜日曆的 deity-volume-master.md 有 90 位神明的主詞量、俗稱量、相關詞前 4。）
+   （例：一份記了 90 個主題詞的主詞量、俗稱量、相關詞前 4 的總表。）
 2. **主關鍵字搜尋**：查主關鍵字的量與相關詞。
 3. **延伸搜尋**：針對高相關性的變體詞再查一次（例：`岳武穆王生日`、`岳飛 拜拜`），同樣記錄。
 4. 也記錄 Google 搜尋結果上的「相關問題」（People Also Ask）作為文章大綱的參考。
@@ -43,7 +42,7 @@
    └─ 意圖相同 → 停下來問使用者（gate-protocol.md `cannibalization`）
 ```
 
-- 意圖相同時，建議更新既有文章而非另起新文（來源：draft-article Step 1）。
+- 意圖相同時，建議更新既有文章而非另起新文。
 - 意圖不同時，告知使用者需注意 title/H1 的角度區分，寫進 state.json 的 `cannibalization.angle_note`。
 - content-inventory 的涵蓋狀態是「未確認」或「失敗」→ 照常跑，報告註明「清單未確認、可能有漏」。「只收本系統」是使用者選的範圍，不註明；這時 `site:` 搜到的既有文章照樣判斷意圖（使用者只是不把舊文章收進清單，撞到時仍要知道）。
 
@@ -73,7 +72,7 @@
 
 見下方決策規則表 #1、#2。決定篇數與主／次關鍵字後，記進 state.json 的 `decisions`。互動模式在這裡停（gate `plan`）。
 
-有 keyword plan 時，同時決定這篇歸到哪個 pillar／子頁（來源：draft-article Step 1「讀取 Topic Cluster 架構，確認目標關鍵字所屬的 Pillar」）：用 keywords.csv 的 `subpage` 找（認變體）；子頁表有這個主關鍵字就用它的次要關鍵字當參考。詞不在表上 → state.json 記 `pillar: null`，S12 放進 `_unsorted.md` 並提醒 `/keyword-plan 整理未分類`。結果寫進 state.json 的 `keyword_plan`（`pillar`、`subpage`、`pillar_url`、`sibling_urls`）。
+有 keyword plan 時，同時決定這篇歸到哪個 pillar／子頁（讀取 Topic Cluster 架構，確認目標關鍵字所屬的 Pillar）：用 keywords.csv 的 `subpage` 找（認變體）；子頁表有這個主關鍵字就用它的次要關鍵字當參考。詞不在表上 → state.json 記 `pillar: null`，S12 放進 `_unsorted.md` 並提醒 `/keyword-plan 整理未分類`。結果寫進 state.json 的 `keyword_plan`（`pillar`、`subpage`、`pillar_url`、`sibling_urls`）。
 
 讀者「讀完要去哪」（`profile.site.cta.angle_bias`）有填時，選切角偏向接得到產品的角度。
 
@@ -92,7 +91,7 @@
 
 根據搜尋意圖將關鍵字分群，決定應產出幾篇文章。分群類型用 `profile.article_count.split_types`。
 
-> 例：拜拜日曆的常見分群邏輯（來源：deity-content-pipeline Step 3）：
+> 例：民俗網站的常見分群邏輯：
 > - **認識型**：「XX是誰」「XX的故事」→ 介紹文
 > - **拜拜型**：「XX生日」「XX怎麼拜」「XX供品」→ 拜拜指南
 > - **禁忌/注意型**：「XX禁忌」「XX注意事項」→ 可併入拜拜指南或獨立

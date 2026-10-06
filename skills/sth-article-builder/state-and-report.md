@@ -1,6 +1,5 @@
 # state.json 與最終報告
 
-> 來源：拜拜日曆 auto-article §7（全文），加上 plan-v5 §4.1 的欄位。
 
 ## 單次執行資料夾 `{站}/runs/{slug}/`
 

@@ -1,6 +1,5 @@
 # 讀取來源：直接讀網站（預設）
 
-> 來源：plan-v5 §4.2「讀取來源：直接讀網站」、§5.2 content-inventory.csv；拜拜日曆 auto-article §6 內部連結那列（UA、WebFetch 被擋、NEVER 用 HTTP 200 判斷）。
 > 不預設任何平台或框架。站專屬的讀取細節寫在 `profile.adapters.read_source.website`。
 
 ## 能力宣告

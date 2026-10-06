@@ -1,7 +1,6 @@
 # 上線：S10–S12
 
-> 來源：拜拜日曆 auto-article S10–S12、§3 決策規則表 #8–#11；deity-content-pipeline Step 5。
-> WordPress 的完整操作搬到 `~/article-engine/adapters/publish/wordpress.md`；make-banner 的腳本與產圖步驟搬到 `~/article-engine/adapters/cover/template-overlay.md`。
+> 各平台的完整操作在 `~/article-engine/adapters/publish/`；封面產圖步驟在 `~/article-engine/adapters/cover/`。
 
 ---
 
@@ -51,7 +50,6 @@
    - S4 有對到子頁 → 更新該子頁的狀態與網址（還沒有網址就狀態「草稿」、網址留空）。
    - 沒對到 → 在 `_unsorted.md` 加一列（詞、runs 路徑或網址、日期），報告提醒 `/keyword-plan 整理未分類`。
    - S1 新查到的詞（state.json `keyword_data`）補進 keywords.csv：已有的詞只在新的查詢日期較新時更新量；`subpage` 填這篇的子頁（沒對到就留空）。
-   （例：拜拜日曆原本更新 processed-deities.md 新增一列、keyword-pillar.md 把文章歸入 Pillar；sth-article-builder 不寫這兩個檔，改寫自己的 keyword plan 副本。）
 2. **content-inventory.csv**：檔案不存在就先建（表頭與開頭註解照 `~/article-engine/adapters/read-source/website.md`；`include_existing` 為 false 時涵蓋狀態寫「只收本系統」）。新增一列，網址留空（或填平台回傳的 url）、「是不是這套系統寫的」填 slug。
 3. **profile.yaml**：`modes.articles_written` 加 1。
 4. 產出最終報告，見 [../state-and-report.md](../state-and-report.md)，最後附 SKILL.md §5 的提醒。

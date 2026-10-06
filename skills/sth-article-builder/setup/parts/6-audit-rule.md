@@ -1,6 +1,5 @@
 # 第 6 段：audit rule（這種說法對不對、要不要查）
 
-> 來源：plan-v5 §6 查核模型、§7.2 第 6 段。產出 `{站}/audit-rule.md`、`{站}/extensions/`，設定 profile 的 `audit`、`extensions`。
 
 audit rule 決定 S7 稽核哪些段落、每種論斷怎麼處置。沒建時用 `~/article-engine/audit-presets/generic.md`。
 

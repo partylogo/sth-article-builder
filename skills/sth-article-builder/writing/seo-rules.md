@@ -1,6 +1,5 @@
 # SEO 核心規則摘要
 
-> 來源：拜拜日曆 `.claude/skills/draft-article/seo-rules.md` 全文（原本從該站 `docs/guideline/article-guide.md` 提取）。
 > 範例沿用拜拜日曆（天赦日），換站時規則照用、範例只當示意。站點專屬的程式行為（例如由 `### Q：` 自動產生 schema）寫在站設定的 publish notes。
 
 ---
@@ -90,7 +89,7 @@ Cluster 文章（分散權重）← 彼此水平互連，共同支撐 Pillar
 | 跨 Pillar 連結 | 0-2 個 | 參考 |
 | 整體密度 | 每 1,000 字 3-5 個內部連結 | 參考 |
 
-> 數字來自拜拜日曆 keyword-pillar.md 的「頁面規格標準」（2026-09-14 統一），站的 keyword plan 有自己的規格時以站的為準。
+> 站的 keyword plan 有自己的規格時以站的為準（格式見 `~/.claude/skills/keyword-plan/format.md` 的頁面規格）。
 > 規格分成硬條件與參考值：0 條連回支柱頁是結構斷裂，屬硬條件；條數多寡只是參考，不判定對錯。
 > 站沒有 keyword plan（沒有 pillar）時，Cluster → Pillar 這條不適用，報告標 ⚠️。
 

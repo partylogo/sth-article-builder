@@ -1,6 +1,6 @@
 # Keyword 搜尋量工具：Google Keyword Planner（Google Ads API）
 
-> 來源：plan-v5 §4.2 搜尋量工具表「Google 官方：Keyword Planner（Google Ads API）」；Google Ads API 官方文件（2026-09 查證，現行版本 v25）：
+> Google Ads API 官方文件（2026-09 查證，現行版本 v25）：
 > - Generate Historical Metrics：developers.google.com/google-ads/api/docs/keyword-planning/generate-historical-metrics
 > - Generate Keyword Ideas：developers.google.com/google-ads/api/docs/keyword-planning/generate-keyword-ideas
 > - REST 驗證與標頭：developers.google.com/google-ads/api/rest/auth

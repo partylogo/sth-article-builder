@@ -1,6 +1,5 @@
 # Keyword 搜尋量工具：Keyword Surfer（Chrome 擴充）
 
-> 來源：拜拜日曆 `.claude/skills/deity-content-pipeline/SKILL.md` Step 2（全文，含 JS 腳本）與 Step 0 的 Chrome 檢查。
 
 ## 能力宣告
 

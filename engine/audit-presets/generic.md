@@ -1,6 +1,5 @@
 # 查核預設：通用（generic）
 
-> 來源：plan-v5 §6 查核模型；拜拜日曆 draft-article Step 5.1 的「只稽核高風險段落」做法。
 > 站沒有 `audit-rule.md`、`profile.audit.preset` 也沒指定其他預設時用這份。報告寫「這篇用通用查核規則」。
 
 ## 要稽核的段落（S7.1）

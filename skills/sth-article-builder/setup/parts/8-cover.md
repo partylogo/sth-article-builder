@@ -1,6 +1,5 @@
 # 第 8 段：封面設定
 
-> 來源：plan-v5 §7.2 第 8 段；封面轉接器在 `~/article-engine/adapters/cover/`。設定 profile 的 `adapters.cover`。
 
 ## 要決定的點
 

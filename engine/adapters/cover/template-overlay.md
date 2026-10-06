@@ -1,7 +1,6 @@
 # 封面：模板疊字（固定底圖＋主副標）
 
-> 來源：拜拜日曆 `.claude/skills/make-banner/SKILL.md`（全文）。
-> 腳本、底圖、輸出目錄、字數上限、主標樣板改從 `profile.adapters.cover.template_overlay` 讀；原文的拜拜日曆數值保留成「例」。
+> 腳本、底圖、輸出目錄、字數上限、主標樣板改從 `profile.adapters.cover.template_overlay` 讀；表格裡的例子是拜拜日曆的設定值。
 > 「產圖後：檢查 WordPress 封面圖」搬到發佈平台轉接器的「設封面」動作（`adapters/publish/wordpress.md`）。
 
 ## 能力宣告

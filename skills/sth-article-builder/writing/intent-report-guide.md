@@ -1,6 +1,5 @@
 # SEO 與 AI SEO 關鍵字與使用者意圖研究報告
 
-> 來源：拜拜日曆 `docs/guideline/user-Intent-report-guide.md` 全文。
 > 社群來源網域、年份區間由站設定 `research.community_sources`、`research.community_year_range`、`research.community_search_hints` 決定；沒設定時用下面原文寫的預設（Threads、PTT、Dcard，2020~2026）。
 
 這份報告是針對「關鍵字與使用者意圖研究」的綜合整理，結合了傳統 SEO 的紮實基礎與 2024-2025 年最新的 AI SEO 趨勢（包含 Google SGE/AI Overviews 的影響）。

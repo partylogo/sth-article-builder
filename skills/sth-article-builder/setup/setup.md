@@ -2,7 +2,6 @@
 
 > 由 `/sth-article-builder` SKILL.md §1.2 帶進來：使用者打 `/sth-article-builder setup …` 時讀這份照做。下文的「參數」是 `setup` 後面的字（去掉 `--site`）。
 
-> 來源：plan-v5 §5、§7（onboarding）；欄位定義在 `~/article-engine/profile-schema.md`。
 > 精靈的目標：**任何站都能靠它設定完成，不需要人工補檔**。精靈搞不定的站，是精靈的缺口，回頭修精靈。
 
 ## 原則

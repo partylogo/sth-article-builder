@@ -1,6 +1,5 @@
 # 讀取來源（加分）：WordPress REST API
 
-> 來源：plan-v5 §4.2「加分來源（有才用）：CMS API」；拜拜日曆 wordpress-publish.md 的架構說明（Headless WordPress，前端透過 REST API 讀文章）。
 > 這是加分來源，不取代 [website.md](website.md)。有它時，content-inventory 的涵蓋狀態可以升為「已確認完整」，抓回可以拿到原生 HTML。
 
 ## 能力宣告
