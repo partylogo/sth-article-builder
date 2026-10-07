@@ -68,7 +68,7 @@
    - 正式網址：`astro.config.*` 的 `site`、`next.config.*`、`package.json` 的 `homepage`、`CNAME`、`.env*` 裡名字含 `SITE_URL`／`BASE_URL` 的變數（只讀變數名稱與這一個值）、`sitemap.*`、`robots.*`
    - 語言：框架的 i18n 設定、根 layout 的 `lang`
    - 品牌名：layout 的 `<title>` 樣板、manifest 的 `name`
-   - 網址樣式：路由資料夾（例：`src/pages/blog/[slug].astro`）；內容不在 repo、從 API 讀時（路由檔裡有 fetch），記下來並在結果裡說「放這個前綴的話，第 6 段不能用『寫進網站程式碼』」
+   - 網址樣式：路由資料夾（例：`src/pages/blog/[slug].astro`）；內容不在 repo、從 API 讀時（路由檔裡有 fetch），記下來並在結果裡說「這個前綴的文章不在程式碼裡，第 6 段上稿要透過後台」
 4. 結果表格給使用者確認，同 B。
 
 ### 寫檔
