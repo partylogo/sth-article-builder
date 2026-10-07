@@ -56,7 +56,7 @@
    | 語言 | `<html lang>`、內文字元 |
    | 品牌名 | `og:site_name`、`<title>` 的固定後綴、logo 的 alt |
    | 網址樣式 | 網站地圖裡各網址前綴的頁數（只讀網址清單，不逐頁抓）；子網站地圖網址裡的 `&amp;` 要還原成 `&` |
-   | 平台（附帶，給第 7 段用） | `<meta name="generator">`、`/wp-json/` 有沒有回應、`/ghost/api/`、`__NEXT_DATA__`、`/_astro/` 路徑、HTTP 標頭 |
+   | 平台（附帶，給第 6 段用） | `<meta name="generator">`、`/wp-json/` 有沒有回應、`/ghost/api/`、`__NEXT_DATA__`、`/_astro/` 路徑、HTTP 標頭 |
 
 3. 結果整理成一張表（項目、推測、依據）給使用者確認。網址樣式有好幾種（例：`/blog/` 和 `/news/`）時，列出各前綴的頁數與一兩個網址，問「新文章要放哪一種？」
 
@@ -68,12 +68,12 @@
    - 正式網址：`astro.config.*` 的 `site`、`next.config.*`、`package.json` 的 `homepage`、`CNAME`、`.env*` 裡名字含 `SITE_URL`／`BASE_URL` 的變數（只讀變數名稱與這一個值）、`sitemap.*`、`robots.*`
    - 語言：框架的 i18n 設定、根 layout 的 `lang`
    - 品牌名：layout 的 `<title>` 樣板、manifest 的 `name`
-   - 網址樣式：路由資料夾（例：`src/pages/blog/[slug].astro`）；內容不在 repo、從 API 讀時（路由檔裡有 fetch），記下來並在結果裡說「放這個前綴的話，第 7 段不能用『寫進網站程式碼』」
+   - 網址樣式：路由資料夾（例：`src/pages/blog/[slug].astro`）；內容不在 repo、從 API 讀時（路由檔裡有 fetch），記下來並在結果裡說「放這個前綴的話，第 6 段不能用『寫進網站程式碼』」
 4. 結果表格給使用者確認，同 B。
 
 ### 寫檔
 
-profile 的 `site.domain`、`canonical_base`、`article_url_pattern`、`language`、`region`、`brand.name`、`brand.variants_to_fix`。還沒上線：`site.domain` 留空，2-3 的方法只剩「先空著」。
+profile 的 `site.domain`、`canonical_base`、`article_url_pattern`、`language`、`region`、`brand.name`、`brand.variants_to_fix`。還沒上線：`site.domain` 留空，2-3 只剩 B（不放既有文章）。
 
 `site.language` 對應不到 `~/article-engine/language/` 底下的語言包時，照實說「目前只有 zh-TW 語言包」，寫進 skill-issues.md。
 
@@ -154,8 +154,7 @@ profile 的 `site.domain`、`canonical_base`、`article_url_pattern`、`language
 | 方法 | 會怎樣 | 你要準備 | 時間 | 會動到外部嗎 |
 |---|---|---|---|---|
 | A. 全部收 | 我讀網站列出文章。舊文章會參與重複內容檢查、可以被連結、會被當寫作參考 | 不用 | 看文章數，幾分鐘到十幾分鐘 | 只讀 |
-| B. 不收，只收之後這套系統寫的 | 清單從空的開始。舊文章不會被連結、不會被當參考；重複內容檢查仍會搜你的網站，搜到舊文章照樣提醒 | 不用 | 0 | 不會 |
-| C. 先空著，之後再加 | 跟 B 一樣從空的開始；之後打 `/sth-article-builder setup 既有文章` 選 A 補進來 | 不用 | 0 | 不會 |
+| B. 不放既有文章，只收後面新寫的文章 | 清單從空的開始。舊文章不會被連結、不會被當參考；重複內容檢查仍會搜你的網站，搜到舊文章照樣提醒。之後想收舊文章，打 `/sth-article-builder setup 既有文章` 選 A | 不用 | 0 | 不會 |
 
 **推薦**：使用者說過「舊文章不要當參考」之類的話時推薦 B。其他情況不標。
 
@@ -171,16 +170,15 @@ profile 的 `site.domain`、`canonical_base`、`article_url_pattern`、`language
    多個來源以網址為鍵合併；兩邊數量對不上 → 寫出差幾篇、各舉一個例子，不自己判斷誰對。
 5. 結果給使用者確認：「收了 N 篇文章，涵蓋狀態：{已確認完整／未確認}」。涵蓋狀態看「新文章放的那個前綴」有沒有被完整讀到，不是看用了哪種讀法。
 
-### 方法 B／C 的做法
+### 方法 B 的做法（不放既有文章）
 
-不讀網站。建一個只有表頭的 `content-inventory.csv`（格式見 `website.md`），開頭註解寫 `# coverage: 只收本系統`（`site.domain` 空的時候寫 `網站未上線`）。C 另外在 profile 記 `content_inventory.later: true`，狀態畫面會一直提醒之後補收。
+不讀網站。建一個只有表頭的 `content-inventory.csv`（格式見 `website.md`），開頭註解寫 `# coverage: 只收本系統`（`site.domain` 空的時候寫 `網站未上線`）。
 
 ### 寫檔
 
 ```yaml
 content_inventory:
-  include_existing: true    # A＝true；B、C＝false
-  later: false              # C＝true
+  include_existing: true    # A＝true；B＝false
 adapters:
   read_source:
     primary: website

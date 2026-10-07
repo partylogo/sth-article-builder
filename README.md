@@ -8,7 +8,7 @@
 
 | 指令 | 用途 |
 |---|---|
-| `/sth-article-builder setup` | 設定精靈：讀網站偵測語言、品牌、平台與現有文章，只問偵測不到的事。8 段，可中斷續跑 |
+| `/sth-article-builder setup` | 設定精靈：讀網站偵測語言、品牌、平台與現有文章，只問偵測不到的事。7 段，可中斷續跑 |
 | `/sth-article-builder setup 狀態` | 看設定進度 |
 | `/sth-article-builder <主關鍵字>` | 寫一篇文章 |
 | `/sth-article-builder cover <文章>` | 單獨補封面 |

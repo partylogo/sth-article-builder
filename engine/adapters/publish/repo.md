@@ -16,7 +16,7 @@
 
 ---
 
-## A. setup：讀 repo、寫發佈規則（setup 第 7 段呼叫）
+## A. setup：讀 repo、寫發佈規則（setup 第 6 段呼叫）
 
 目標：回答「一篇新文章要怎樣才能出現在網站上」，每一條都要有證據（檔案路徑＋行號或指令輸出）。**只讀，不改 repo 任何檔。**
 
@@ -39,7 +39,7 @@
 
 1. **找機器檢查的定義**（有的話它就是準）：內容集合的 schema 設定檔（例：Astro 的 `src/content/config.*`、`src/content.config.*`；Contentlayer 的 `contentlayer.config.*`；Nuxt Content、Hugo archetypes `archetypes/*.md`）。記下每個欄位：名稱、型態、必填與否、允許的值（enum）、預設值。
 2. **看實際用法**：最近 5 篇的 frontmatter，記下 schema 沒寫但大家都有填的欄位、日期格式、標籤與分類實際用了哪些值。
-3. **對照 sth-article-builder 的欄位**：title、slug、date、modified、status（草稿）、excerpt 各對到 repo 的哪個欄位；repo 沒有的欄位怎麼處理（例：沒有 slug 欄位 → 用檔名）。寫進 `profile.frontmatter.fields`（setup 第 7 段在這裡帶出欄位，不另外問）。
+3. **對照 sth-article-builder 的欄位**：title、slug、date、modified、status（草稿）、excerpt 各對到 repo 的哪個欄位；repo 沒有的欄位怎麼處理（例：沒有 slug 欄位 → 用檔名）。寫進 `profile.frontmatter.fields`（setup 第 6 段在這裡帶出欄位，不另外問）。
 4. **草稿怎麼表示**：有 `draft: true` 這類欄位就用；沒有的話，問使用者新文章寫進去之前要怎麼避免直接上線（例：先不 commit、放另一個分支）。
 
 ### A4. 內文慣例
@@ -134,7 +134,7 @@ grep -rln "{現有文章 slug}" "{repo}" --exclude-dir={node_modules,.git,dist,b
 ```markdown
 # 發佈規則：{站名}
 
-> 由 /sth-article-builder setup 第 7 段讀 repo 產生，{日期}。repo：{site.repo_path}，HEAD {short sha}
+> 由 /sth-article-builder setup 第 6 段讀 repo 產生，{日期}。repo：{site.repo_path}，HEAD {short sha}
 > 這份是給 /sth-article-builder 照著做的。repo 改了寫法時，重跑 `/sth-article-builder setup 發佈平台設定`。
 
 ## repo 自己寫的規範

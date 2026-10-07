@@ -1,4 +1,4 @@
-# 第 8 段：封面
+# 第 7 段：封面
 
 ## 說明卡
 
@@ -49,4 +49,4 @@
 
 寫進 profile 的 `adapters.cover`（`type`、`template_overlay.script`、`base_image`、`title_max_chars`、`subtitle_max_chars`、`notes`）。`notes` 記下尺寸依據與容易出錯的字（例：「英文或數字後面緊接『一』會看起來像破折號」）。
 
-`setup.parts.cover`：A、B 測試圖使用者看過 → done；C → default；跳過 → skipped。
+`setup.parts.cover`：A、B 測試圖使用者看過 → done；C（跳過）→ skipped。

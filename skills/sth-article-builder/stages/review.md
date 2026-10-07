@@ -7,7 +7,7 @@
 
 照 `~/.claude/skills/last-mile-review/SKILL.md` § 2-§ 6 跑完四個維度（錯字、事實邏輯、通用風格、SEO）與專案特別檢查。
 
-- 專案檔：放在 `{站}/docs/review-project.md`（setup 第 6 段目前暫停，不會建；站要用就自己放這個位置）。last-mile-review §0 會從目前資料夾找 `.claude/review-project.md` → `docs/review-project.md`；目前資料夾不是 `{站}` 時（例：用 `--site` 從別處跑），先讀 `{站}/docs/review-project.md` 並告訴 last-mile-review「專案檔是這份」，照它的規定做。都沒有時它只做通用檢查，報告註明。
+- 專案檔：放在 `{站}/docs/review-project.md`（設定精靈目前不建這個檔；站要用就自己放這個位置）。last-mile-review §0 會從目前資料夾找 `.claude/review-project.md` → `docs/review-project.md`；目前資料夾不是 `{站}` 時（例：用 `--site` 從別處跑），先讀 `{站}/docs/review-project.md` 並告訴 last-mile-review「專案檔是這份」，照它的規定做。都沒有時它只做通用檢查，報告註明。
 - 輸入：`{站}/runs/{slug}/draft.md`。線上已有同 slug 的版本時，照 last-mile-review §1，**一律以線上版為準**，不問。
 - **互動模式**：照 last-mile-review §8 讓使用者選要套用哪些（gate `review-apply`）。
 - **auto 模式**：**全部自動套用**，照下方處置階梯。

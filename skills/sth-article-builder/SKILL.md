@@ -160,7 +160,7 @@ S9 的機器閘門是硬性的。**AI 自我宣稱「我檢查過了」不算通
 
 每篇產出結束，最終報告最後列「提醒」，每則附要打的指令，**不停下來**：
 
-- 未完成或正在用預設的設定段落（例：「brand voice 用預設語氣 → `/sth-article-builder setup brand voice`」）。查核規則（第 6 段）暫停中，固定寫「查核規則與審稿專案檔：用通用預設（之後優化）」，不附指令
+- 未完成或正在用預設的設定段落（例：「brand voice 用預設語氣 → `/sth-article-builder setup brand voice`」）
 - 產出後還沒對到網址的稿子（「N 篇產出後還沒對到網址，請貼網址」）
 - 內容清單的涵蓋狀態是「未確認」或「失敗」（「已確認完整」「只收本系統」「網站未上線」都不提醒）
 - 查量工具連不上（這次照「無」的路徑跑）
@@ -178,6 +178,6 @@ S9 的機器閘門是硬性的。**AI 自我宣稱「我檢查過了」不算通
 | [state-and-report.md](state-and-report.md) | state.json 欄位、最終報告格式 |
 | [stages/](stages/) | research、drafting、review、checks、publishing |
 | [writing/](writing/) | core-principles、seo-rules、keyword-layout、intent-report-guide |
-| [setup/](setup/) | `/sth-article-builder setup` 設定精靈：setup.md 與 8 段的 parts/ |
+| [setup/](setup/) | `/sth-article-builder setup` 設定精靈：setup.md 與 7 段的 parts/ |
 | `~/article-engine/` | profile-schema、轉接器、語言包、查核預設、白話對照表 |
 | `{站}/` | profile.yaml 與可選設定、content-inventory.csv、runs/ |

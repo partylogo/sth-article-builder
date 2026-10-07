@@ -171,7 +171,7 @@ curl -X POST {revalidate.url} \
 
 ## 分類對照表
 
-分類寫在 profile 的 `categories`（每項：id、name、用途）。setup 第 7 段會用下面的指令查一次寫進去。查詢最新分類：
+分類寫在 profile 的 `categories`（每項：id、name、用途）。setup 第 6 段會用下面的指令查一次寫進去。查詢最新分類：
 
 ```bash
 ssh {ssh_host} 'wp term list category --fields=term_id,name,slug {wp_flags}'
