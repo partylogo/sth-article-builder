@@ -138,7 +138,7 @@ S9 的機器閘門是硬性的。**AI 自我宣稱「我檢查過了」不算通
 | 檢查 | S9 機器閘門（硬性） | [stages/checks.md](stages/checks.md)＋站的 extensions。**不通過就不上稿。** |
 | 上線 | S10 上草稿或產出檔案 | [stages/publishing.md](stages/publishing.md) S10：呼叫發佈平台轉接器 |
 | | S11 封面 | publishing.md S11：呼叫封面轉接器 |
-| | S12 收尾 | publishing.md S12：更新 keyword plan、content-inventory、`articles_written`，產出最終報告 |
+| | S12 收尾 | publishing.md S12：更新 keyword plan、content-inventory、`articles_written`，產出最終報告，把這次碰到的流程問題記進 skill-issues.md |
 
 ---
 

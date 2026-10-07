@@ -37,7 +37,7 @@
 | extensions/ | 可選 | 沒有擴充檢查 |
 | content-inventory.csv | 自動 | 第一次開跑時建立 |
 | runs/ | 自動 | 每篇一個 `runs/{slug}/` |
-| skill-issues.md | 自動 | skill 要改進的地方（設定精靈處理不了、缺轉接器、寫文章時發現的流程缺口），之後回頭修 skill 用 |
+| skill-issues.md | 自動 | skill 要改進的地方（設定精靈處理不了、缺轉接器、寫文章時發現的流程缺口），之後回頭修 skill 用。寫文章收尾時自動寫入；格式、分類、誰記的見 sth-article-builder 的 state-and-report.md |
 | setup-log.md | 自動 | 匯入文件時的分類與行數核對紀錄 |
 | publish-rules.md | 發佈平台選 repo 時必要 | setup 第 6 段讀 repo 後寫的發佈規則 |
 

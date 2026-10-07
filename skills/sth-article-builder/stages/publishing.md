@@ -53,3 +53,4 @@
 2. **content-inventory.csv**：檔案不存在就先建（表頭與開頭註解照 `~/article-engine/adapters/read-source/website.md`；`include_existing` 為 false 時涵蓋狀態寫「只收本系統」）。新增一列，網址留空（或填平台回傳的 url）、「是不是這套系統寫的」填 slug。
 3. **profile.yaml**：`modes.articles_written` 加 1。
 4. 產出最終報告，見 [../state-and-report.md](../state-and-report.md)，最後附 SKILL.md §5 的提醒。
+5. 把報告「這次碰到的流程問題」記進 `{站}/skill-issues.md`，格式與分類見 [../state-and-report.md](../state-and-report.md) 的「寫進 skill-issues.md」。整個流程中（不只 S12）碰到的流程問題，碰到時就先記在 state.json 的 `process_issues`，這一步一起寫。
