@@ -189,7 +189,7 @@ adapters:
       box: []              # 放字區域 [x, y, w, h]，只有內建程式用；空＝程式自己找
       color: ""            # 字色，只有內建程式用；空＝依底圖亮度選
       valign: middle       # 字的上下位置 top／middle／bottom，只有內建程式用
-      brand: ""            # 左下角壓的站名，只有內建程式用；空＝不壓
+      logo: ""             # 左下角放的品牌 logo（PNG／JPG 絕對路徑），只有內建程式用；空＝不放，沒有預設
       output_dir: ""
       title_template: []   # 主標樣板。例：["{主關鍵字}是誰", "{主關鍵字}怎麼拜"]
       title_max_chars: 8
@@ -240,5 +240,5 @@ setup:
 | 1 | 0.1.2 | 新增可選欄位 `content_inventory.include_existing`（沒填＝true，行為同前）；清單涵蓋狀態多「網站未上線」「只收本系統」；清單可以是空的 |
 | 1 | 0.1.4 | 新增可選欄位 `content_inventory.later`；`frontmatter.fields` 改由 setup 第 7 段依上稿方式帶出（第 5 段不再問）；`site.cta.angle_bias` 設定時不再問，預設空；給使用者看的字不寫步驟代號 |
 | 1 | 0.1.5 | 設定精靈拿掉查核規則那段，段落重排成 7 段（上稿第 6 段、封面第 7 段）；`setup.parts` 不再有 `audit_rule`，`setup.selected` 用新編號；拿掉 `content_inventory.later`（2-3 只剩「全部收」「不放既有文章」兩個方法）。舊設定檔自動遷移：`setup.selected` 的 6 拿掉、7 改 6、8 改 7；多出的 `audit_rule`、`later` 忽略 |
-| 1 | 0.1.6 | 封面改成「提供底圖」「使用內建底圖」「跳過」三個方法，都用引擎內建的壓字程式；`adapters.cover.template_overlay` 新增可選欄位 `box`、`color`、`valign`、`brand`；內建程式的字數檢查改看實際寬度。舊設定用站自己腳本的照舊能用 |
+| 1 | 0.1.6 | 封面改成「提供底圖」「使用內建底圖」「跳過」三個方法，都用引擎內建的壓字程式；`adapters.cover.template_overlay` 新增可選欄位 `box`、`color`、`valign`、`logo`；內建程式的字數檢查改看實際寬度。舊設定用站自己腳本的照舊能用 |
 | 1 | 0.1.3 | `setup.route` 的值改成 all／required／custom（舊值 quick 視同 required、full 視同 all），新增 `setup.selected`；設定精靈改成每段先給說明卡、使用者選方法才動手 |

@@ -21,7 +21,7 @@
 | 放字區域 | `box` | `[72, 121, 672, 433]`（只有內建程式用；空的話程式自己找） |
 | 字色 | `color` | `#ffffff`（只有內建程式用；空的話依底圖亮度選） |
 | 上下位置 | `valign` | `middle`（只有內建程式用；top／middle／bottom） |
-| 站名 | `brand` | `Example 咖啡誌`（只有內建程式用；空的話不壓） |
+| 品牌 logo | `logo` | `/Users/…/logo.png`（只有內建程式用；空的話不放） |
 | 預設輸出目錄 | `output_dir` | `~/banner-maker/output/` |
 | 主標字數上限 | `title_max_chars` | 8 |
 | 副標字數上限 | `subtitle_max_chars` | 22 |
@@ -96,7 +96,7 @@ python3 {script} \
   --title "<主標>" \
   --subtitle "<副標>" \
   --out "<完整輸出路徑>"
-# 內建程式另外加：--base "{base_image}"；有值的才加：--box "x,y,w,h" --valign {valign} --color "{color}" --brand "{brand}"
+# 內建程式另外加：--base "{base_image}"；有值的才加：--box "x,y,w,h" --valign {valign} --color "{color}" --logo "{logo}"
 ```
 
 內建程式回傳碼：2＝字放不下（照「字數檢查」縮寫後重跑）；3＝輸出檔已存在（照第 3 步處理）。
