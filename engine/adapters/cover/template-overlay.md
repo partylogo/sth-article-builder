@@ -21,7 +21,7 @@
 | 放字區域 | `box` | `[72, 121, 672, 433]`（只有內建程式用；空的話程式自己找） |
 | 字色 | `color` | `#ffffff`（只有內建程式用；空的話依底圖亮度選） |
 | 上下位置 | `valign` | `middle`（只有內建程式用；top／middle／bottom） |
-| 品牌 logo | `logo` | `/Users/…/logo.png`（只有內建程式用；空的話不放） |
+| 品牌 logo | `logo` | `/Users/…/logo.png`（只有內建程式用；空的話不放。設定時可以用 `scripts/find_logo.py` 從網站抓候選） |
 | 預設輸出目錄 | `output_dir` | `~/banner-maker/output/` |
 | 主標字數上限 | `title_max_chars` | 8 |
 | 副標字數上限 | `subtitle_max_chars` | 22 |

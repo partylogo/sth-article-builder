@@ -172,6 +172,9 @@ def main():
             sys.exit("logo 不能是 SVG，請給 PNG 或 JPG")
         W, H = img.size
         logo = Image.open(a.logo).convert("RGBA")
+        bbox = logo.getchannel("A").getbbox()  # 裁掉四周透明的空白，SVG 轉出來常有
+        if bbox:
+            logo = logo.crop(bbox)
         lh = int(H * 0.08)
         logo = logo.resize((max(1, int(logo.width * lh / logo.height)), lh), Image.LANCZOS)
         img.paste(logo, (int(W * 0.06), H - int(H * 0.06) - lh), logo)

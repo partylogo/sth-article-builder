@@ -47,10 +47,11 @@
       - 左右：靠左／靠右／置中 → `--side left|right|center`，重量
       - 上下：靠上／置中／靠下 → `--valign top|middle|bottom`
       重產兩張測試圖給使用者看。要更細的位置就用 `--box x,y,w,h`。
-6. 問「左下角要放你的品牌 logo 嗎？」（兩個選項，都不標預設、不標推薦）：
-   1. 要：給 logo 圖檔路徑（PNG 或 JPG，透明背景的 PNG 最好；SVG 不行，請先轉成 PNG）。加 `--logo {路徑}` 重產測試圖給使用者看。
-   2. 不要
-   不自己去網站或程式碼裡找 logo 來放，也不拿站名文字代替。
+6. 問「左下角要放你的品牌 logo 嗎？」（不標預設、不標推薦）：
+   1. 要，我給檔案：給 logo 圖檔路徑（PNG 或 JPG，透明背景的 PNG 最好；SVG 不行，請先轉成 PNG）
+   2. 要，從我的網站抓（`site.domain` 有值時才列）：跑 `~/article-engine/adapters/cover/scripts/find_logo.py {canonical_base} {站}/cover-logo/ --brand {site.brand.name}`，從首頁的 logo 圖片與網站圖示找候選，SVG 轉成 PNG。每個候選都放到底圖上，並排給使用者挑；沒有透明背景的候選標出來（放上去會有一塊方框）。找不到候選就照實說，改問 1 或 3。
+   3. 不要
+   選了 1 或 2：加 `--logo {路徑}` 重產測試圖給使用者看。選 2 挑定的那張留在 `{站}/cover-logo/`，其他候選刪掉。使用者沒選「要」就不放，也不拿站名文字代替。
 7. 字數：照 `--measure` 算出來的數字寫進 `title_max_chars`、`subtitle_max_chars`，跟使用者說「這是全中文時的參考值，寫文章時程式會直接量寬度，英文、數字比較窄，實際可以放更多」。使用者想讓標題短一點，可以改小。
 
 ## 方法 B 的做法（內建底圖）
