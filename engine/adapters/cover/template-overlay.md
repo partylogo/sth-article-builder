@@ -20,6 +20,8 @@
 | 底圖（固定） | `base_image` | `~/banner-maker/base.jpg`；內建底圖在 `~/article-engine/adapters/cover/bases/` |
 | 放字區域 | `box` | `[72, 121, 672, 433]`（只有內建程式用；空的話程式自己找） |
 | 字色 | `color` | `#ffffff`（只有內建程式用；空的話依底圖亮度選） |
+| 上下位置 | `valign` | `middle`（只有內建程式用；top／middle／bottom） |
+| 站名 | `brand` | `Example 咖啡誌`（只有內建程式用；空的話不壓） |
 | 預設輸出目錄 | `output_dir` | `~/banner-maker/output/` |
 | 主標字數上限 | `title_max_chars` | 8 |
 | 副標字數上限 | `subtitle_max_chars` | 22 |
@@ -72,7 +74,8 @@
 
 ### 字數檢查
 
-- 主標 > `title_max_chars` 字 或 副標 > `subtitle_max_chars` 字：
+- **內建程式**：不數字數，直接跑 `python3 {script} --base … --box … --title … --subtitle … --check`。回傳碼 0＝放得下；2＝放不下，照下面處理。`title_max_chars` 只在提案時當參考（英文、數字比中文窄，中英混排的標題可以比這個數字長）。
+- **站自己的腳本**：主標 > `title_max_chars` 字 或 副標 > `subtitle_max_chars` 字時：
   - 互動或單獨使用 → 警告使用者「可能會壓到圖上的元素（例：右側植物），是否仍要繼續？」使用者堅持繼續才執行；想改就回到提案/輸入。
   - auto 模式 → 自動縮寫至上限內，不問（gate `cover-overflow`）。
 
@@ -93,7 +96,7 @@ python3 {script} \
   --title "<主標>" \
   --subtitle "<副標>" \
   --out "<完整輸出路徑>"
-# 內建程式另外加：--base "{base_image}"，有 box、color 時加 --box "x,y,w,h" --color "{color}"
+# 內建程式另外加：--base "{base_image}"；有值的才加：--box "x,y,w,h" --valign {valign} --color "{color}" --brand "{brand}"
 ```
 
 內建程式回傳碼：2＝字放不下（照「字數檢查」縮寫後重跑）；3＝輸出檔已存在（照第 3 步處理）。

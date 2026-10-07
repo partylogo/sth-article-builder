@@ -32,9 +32,9 @@
 
 | # | 決策點 | 規則 |
 |---|---|---|
-| 8 | 主標 | 照 `profile.adapters.cover.template_overlay.title_template` 選最合這篇的樣板，≤ `title_max_chars` 字 |
-| 8b | 副標 | 照 `subtitle_rule`（預設：該篇差異化切角一句話），≤ `subtitle_max_chars` 字 |
-| 9 | 主副標超字數 | 自動縮寫至上限內，不問（gate `cover-overflow`） |
+| 8 | 主標 | 照 `profile.adapters.cover.template_overlay.title_template` 選最合這篇的樣板，大約 `title_max_chars` 字（內建程式看實際寬度，中英混排可以長一點） |
+| 8b | 副標 | 照 `subtitle_rule`（預設：該篇差異化切角一句話），大約 `subtitle_max_chars` 字 |
+| 9 | 主副標放不下 | 內建程式跑 `--check` 回 2、站自己的腳本超過字數上限時才算；自動縮寫到放得下，不問（gate `cover-overflow`） |
 | 10 | 檔名已存在 | 一律加 `-v2` 後綴，**永不覆蓋**（gate `cover-exists`） |
 | 11 | 設封面圖 | 原本沒封面才自動設；已有值不覆蓋（gate `cover-featured`） |
 

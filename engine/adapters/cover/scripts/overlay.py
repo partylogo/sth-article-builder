@@ -8,7 +8,10 @@
 
 - 沒給 --box 時，自動找放字區域：從左或右起算，寬度由寬到窄試，取顏色變化夠小的最寬那塊。
 - 沒給 --color 時，依放字區域的亮度選白字或深色字。
-- 主標、副標各一行，放不下就報錯（回傳碼 2），不縮字、不換行，讓呼叫端照字數上限縮寫。
+- 主標、副標各一行，放不下就報錯（回傳碼 2），不縮字、不換行。判斷看實際寬度，不看字數：中英混排的標題只要放得下就過。
+- --check：只檢查放不放得下（回傳碼 0 或 2），不產圖。寫文章產封面前先跑這個，放不下才縮寫。
+- --valign top|middle|bottom：字在放字區域裡靠上、置中或靠下（預設置中）。
+- --brand：在左下角用小字壓站名（內建底圖用；使用者自己的底圖通常已經有 logo，不用）。
 - 輸出檔已存在就報錯（回傳碼 3），永不覆蓋。
 """
 import argparse
@@ -108,6 +111,9 @@ def main():
     ap.add_argument("--box", help="放字區域 x,y,w,h（像素，或 0–1 的比例）")
     ap.add_argument("--side", choices=["left", "right", "center"], help="只在這一側找放字區域")
     ap.add_argument("--color", help="字色，例：#ffffff")
+    ap.add_argument("--valign", choices=["top", "middle", "bottom"], default="middle", help="字在放字區域裡的上下位置")
+    ap.add_argument("--brand", default="", help="左下角的站名（內建底圖用）")
+    ap.add_argument("--check", action="store_true", help="只檢查主標、副標放不放得下，不產圖")
     ap.add_argument("--measure", action="store_true", help="只回報版面與每行字數上限")
     a = ap.parse_args()
 
@@ -133,28 +139,36 @@ def main():
         }, ensure_ascii=False))
         return
 
-    if not a.title or not a.out:
-        sys.exit("產圖要給 --title 與 --out")
-    if os.path.exists(a.out):
-        print(f"輸出檔已存在，不覆蓋：{a.out}", file=sys.stderr)
-        sys.exit(3)
-
+    if not a.title:
+        sys.exit("要給 --title")
     x, y, w, h = box
     tf, sf = lay["title_font"], lay["sub_font"]
     for text, font, label in ((a.title, tf, "主標"), (a.subtitle, sf, "副標")):
         if text and font.getlength(text) > w:
             print(f"{label}放不下：「{text}」寬 {int(font.getlength(text))}px，可放 {w}px", file=sys.stderr)
             sys.exit(2)
+    if a.check:
+        print(f"放得下（主標 {int(tf.getlength(a.title))}px、副標 {int(sf.getlength(a.subtitle)) if a.subtitle else 0}px，可放 {w}px）")
+        return
+    if not a.out:
+        sys.exit("產圖要給 --out")
+    if os.path.exists(a.out):
+        print(f"輸出檔已存在，不覆蓋：{a.out}", file=sys.stderr)
+        sys.exit(3)
 
     draw = ImageDraw.Draw(img)
     gap = int(tf.size * 0.45)
     th = tf.getbbox("測")[3]
     sh = sf.getbbox("測")[3] if a.subtitle else 0
     total = th + (gap + sh if a.subtitle else 0)
-    top = y + (h - total) // 2
+    top = {"top": y, "middle": y + (h - total) // 2, "bottom": y + h - total}[a.valign]
     draw.text((x, top), a.title, font=tf, fill=color)
     if a.subtitle:
         draw.text((x, top + th + gap), a.subtitle, font=sf, fill=color)
+    if a.brand:
+        bf, _, _ = find_font(max(18, int(img.size[1] * 0.04)))
+        W, H = img.size
+        draw.text((int(W * 0.06), H - int(H * 0.08) - bf.getbbox("測")[3]), a.brand, font=bf, fill=color)
     os.makedirs(os.path.dirname(os.path.abspath(a.out)), exist_ok=True)
     img.save(a.out, quality=90)
     print(f"{a.out}（主標 {len(a.title)} 字、副標 {len(a.subtitle)} 字，放在 {box_name} 區域）")
