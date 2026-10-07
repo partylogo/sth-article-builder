@@ -81,4 +81,4 @@
 
 ## 寫檔
 
-寫進 profile 的 `adapters.publish`。`setup.parts.publish`：A 試連成功、C 寫進 repo 的規則使用者確認過、C 用後台的唯讀呼叫通過 → done；B（跳過）→ skipped。C 查完但唯讀檢查還沒過 → 欄位先寫進去，記 todo，下次打 `setup 上稿` 從前置檢查接著做。
+寫進 profile 的 `adapters.publish`。`setup.parts.publish`：A 試連成功、C 寫進 repo 的規則使用者確認過、C 用後台的唯讀呼叫通過、B 選好輸出位置 → done；沒選任何方法就離開 → skipped（等同 B）。C 查完但唯讀檢查還沒過 → 欄位先寫進去，記 todo，下次打 `setup 上稿` 從前置檢查接著做。

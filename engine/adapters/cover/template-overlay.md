@@ -1,6 +1,7 @@
 # 封面：模板疊字（固定底圖＋主副標）
 
-> 腳本、底圖、輸出目錄、字數上限、主標樣板改從 `profile.adapters.cover.template_overlay` 讀；表格裡的例子是拜拜日曆的設定值。
+> 腳本、底圖、放字區域、字色、輸出目錄、字數上限、主標樣板從 `profile.adapters.cover.template_overlay` 讀；表格裡的例子是拜拜日曆的設定值。
+> 設定精靈（第 7 段）設定的站一律用引擎內建的壓字程式 `scripts/overlay.py`，底圖是使用者給的或 `bases/` 的內建底圖。之前設定、用站自己腳本的站照舊能用。
 > 「產圖後：檢查 WordPress 封面圖」搬到發佈平台轉接器的「設封面」動作（`adapters/publish/wordpress.md`）。
 
 ## 能力宣告
@@ -15,13 +16,16 @@
 
 | 項目 | profile 欄位 | 例：拜拜日曆 |
 |---|---|---|
-| 生成腳本 | `script` | `~/banner-maker/make_banner.py` |
-| 底圖（固定） | `base_image` | `~/banner-maker/base.jpg` |
+| 生成腳本 | `script` | 內建：`~/article-engine/adapters/cover/scripts/overlay.py`；站自己的腳本也可以（例：`~/banner-maker/make_banner.py`） |
+| 底圖（固定） | `base_image` | `~/banner-maker/base.jpg`；內建底圖在 `~/article-engine/adapters/cover/bases/` |
+| 放字區域 | `box` | `[72, 121, 672, 433]`（只有內建程式用；空的話程式自己找） |
+| 字色 | `color` | `#ffffff`（只有內建程式用；空的話依底圖亮度選） |
 | 預設輸出目錄 | `output_dir` | `~/banner-maker/output/` |
 | 主標字數上限 | `title_max_chars` | 8 |
 | 副標字數上限 | `subtitle_max_chars` | 22 |
 
-- 樣式（字型、品牌色、字級、座標）已寫在腳本常數區，**不要在 skill 內改樣式**；若要改樣式，請編輯腳本本身。
+- 內建程式：放字區域、字色寫在 profile，字級依底圖高度算，字型自動找系統的中文字型（PingFang、黑體、Noto Sans CJK、微軟正黑體）。
+- 站自己的腳本：樣式（字型、品牌色、字級、座標）寫在腳本常數區，**不要在 skill 內改樣式**；要改就編輯腳本本身。
 
 ## 前置檢查
 
@@ -89,7 +93,10 @@ python3 {script} \
   --title "<主標>" \
   --subtitle "<副標>" \
   --out "<完整輸出路徑>"
+# 內建程式另外加：--base "{base_image}"，有 box、color 時加 --box "x,y,w,h" --color "{color}"
 ```
+
+內建程式回傳碼：2＝字放不下（照「字數檢查」縮寫後重跑）；3＝輸出檔已存在（照第 3 步處理）。
 
 5. 用 Read 工具開啟產出的 jpg 給使用者看（auto 模式只在報告附路徑）
 6. 回報檔案絕對路徑，寫進 state.json 的 `cover.file`
@@ -100,6 +107,6 @@ python3 {script} \
 ## 不該做的事
 
 - 不要直接生 AI 圖（這個工具是「固定底圖疊字」，每次必須像素一致）
-- 不要改腳本內的樣式常數（字型、顏色、座標、字級），除非使用者明確要求調整樣式
+- 不要改站自己腳本內的樣式常數（字型、顏色、座標、字級），除非使用者明確要求調整樣式；內建程式的位置與字色改 profile，不改程式
 - 不要在沒確認的情況下覆蓋既有檔案
 - 單獨使用的 Mode B 不要省略 3 案提案直接做圖：提案讓使用者選是這個模式的核心價值

@@ -86,7 +86,7 @@
 | 4 | 品牌語氣 | 文章怎麼說話 | 可跳過 | [parts/4-brand-voice.md](parts/4-brand-voice.md) | brand-voice.md |
 | 5 | 寫作指南 | 文章要守哪些規矩 | 可跳過 | [parts/5-writing-guide.md](parts/5-writing-guide.md) | writing-guide.md；profile `article_count`、`writing` |
 | 6 | 上稿方式 | 寫好的文章怎麼送進網站 | 建議 | [parts/6-publish.md](parts/6-publish.md) | profile `adapters.publish`、`frontmatter`；寫進 repo 時另寫 publish-rules.md |
-| 7 | 封面 | 要不要自動產封面圖 | 可跳過 | [parts/7-cover.md](parts/7-cover.md) | profile `adapters.cover`；cover-template/ |
+| 7 | 封面 | 要不要自動產封面圖 | 可跳過 | [parts/7-cover.md](parts/7-cover.md) | profile `adapters.cover`（底圖用使用者給的或內建的） |
 
 畫面上給使用者看「段、設定什麼、必要？」三欄就好，接著問：
 
